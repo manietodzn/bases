@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS `tiempleado` (
+  `idempleado` char(15) NOT NULL,
+  `nombre` varchar(120) DEFAULT NULL,
+  `categoria` varchar(100) DEFAULT NULL,
+  `fingreso` date DEFAULT NULL,
+  `fbaja` date DEFAULT NULL,
+  `empresa` char(10) DEFAULT NULL,
+  `zona` int(11) unsigned DEFAULT NULL,
+  `ccosto` char(10) DEFAULT NULL,
+  `email` char(50) DEFAULT NULL,
+  `jefe` char(15) DEFAULT NULL,
+  `mventa` double DEFAULT 0,
+  `autorizador` enum('N','S') NOT NULL DEFAULT 'N',
+  `activo` enum('S','N') NOT NULL DEFAULT 'S',
+  PRIMARY KEY (`idempleado`),
+  KEY `zona` (`zona`),
+  KEY `ccosto` (`ccosto`),
+  CONSTRAINT `tiempleado_ibfk_1` FOREIGN KEY (`zona`) REFERENCES `tizona` (`idzona`) ON UPDATE CASCADE,
+  CONSTRAINT `tiempleado_ibfk_2` FOREIGN KEY (`ccosto`) REFERENCES `ticcosto` (`idccosto`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
