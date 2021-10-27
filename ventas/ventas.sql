@@ -6,5 +6,6 @@ CREATE TABLE IF NOT EXISTS `ventas` (
   `FechaVentas` date NOT NULL,
   `Monto` double NOT NULL,
   `Estado` varchar(1) NOT NULL,
+  `rfc` varchar(20) NOT NULL,
   PRIMARY KEY (`IdVentas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
